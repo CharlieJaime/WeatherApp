@@ -56,6 +56,8 @@
 	    hashHistroy = _require.hashHistroy;
 
 	var Main = __webpack_require__(216);
+	var Weather = __webpack_require__(218);
+	var About = __webpack_require__(219);
 
 	/*********
 	Dom Render
@@ -63,7 +65,12 @@
 	ReactDOM.render(React.createElement(
 	  Router,
 	  { history: hashHistroy },
-	  React.createElement(Route, { path: '/', component: Main })
+	  React.createElement(
+	    Route,
+	    { path: '/', component: Main },
+	    React.createElement(Route, { path: 'about', component: About }),
+	    React.createElement(IndexRoute, { component: Weather })
+	  )
 	), document.getElementById("app"));
 
 /***/ },
@@ -24853,11 +24860,12 @@
 	      'div',
 	      { 'class': 'MainContainer' },
 	      React.createElement(
-	        'h2',
+	        'h1',
 	        null,
 	        'Main Component'
 	      ),
-	      React.createElement(Nav, null)
+	      React.createElement(Nav, null),
+	      this.props.children
 	    );
 	  }
 	});
@@ -24885,6 +24893,50 @@
 	});
 
 	module.exports = Nav;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Weather = React.createClass({
+	  displayName: 'Weather',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'Weather Component'
+	    );
+	  }
+	});
+
+	module.exports = Weather;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var About = React.createClass({
+	  displayName: 'About',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'About Component'
+	    );
+	  }
+	});
+
+	module.exports = About;
 
 /***/ }
 /******/ ]);
