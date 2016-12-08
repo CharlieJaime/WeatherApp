@@ -1,34 +1,51 @@
 var React = require('react');
 var WeatherMsg = require('WeatherMsg');
 var WeatherForm = require('WeatherForm');
+var OpenWeatherMap = require('OpenWeatherMap');
 
 
 /*********
 Main Weather compenent
 **********/
 var Weather = React.createClass({
-  getDefaultProps: function() {
-      return{
-        city: 'Local'
-      };
-  },
   getInitialState: function() {
     return{
-      city: this.props.city
+      isLoading: false
     };
   },
   handleCityName: function(city){
-    this.setState({
-      city: city
-    });
+    var that = this;
+
+    this.setState({isLoading: true});
+
+    OpenWeatherMap.getTemp(city).then(function(temp){
+      that.setState({
+        city: city,
+        temp: temp,
+        isLoading: false
+      });
+    }, function(err){
+      that.setState({
+        isLoading: false
+      });
+      alert(err);
+    })
   },
   render: function(){
-    var {temp, city} = this.state;
+    var {isLoading, temp, city} = this.state;
+
+    function renderMsg(){
+      if (isLoading) {
+        return <h3>Fetching weather...</h3>
+      } else if(temp && city){
+        return <WeatherMsg  temp={temp} city={city}/>;
+      }
+    }
 
     return(
       <div>
         <WeatherForm onCityName={this.handleCityName}/>
-        <WeatherMsg  temp={temp} city={city}/>
+        {renderMsg()}
       </div>
     );
   }
