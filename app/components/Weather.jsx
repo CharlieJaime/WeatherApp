@@ -18,15 +18,17 @@ var Weather = React.createClass({
     };
   },
   handleCityName: function(city){
-    this.setState(city);
+    this.setState({
+      city: city
+    });
   },
   render: function(){
-    var city = this.state.city;
+    var {temp, city} = this.state;
 
     return(
       <div>
         <WeatherForm onCityName={this.handleCityName}/>
-        <WeatherMsg city={city}/>
+        <WeatherMsg  temp={temp} city={city}/>
       </div>
     );
   }

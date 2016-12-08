@@ -24941,7 +24941,9 @@
 	    };
 	  },
 	  handleCityName: function handleCityName(city) {
-	    this.setState(city);
+	    this.setState({
+	      city: city
+	    });
 	  },
 	  render: function render() {
 	    var city = this.state.city;
