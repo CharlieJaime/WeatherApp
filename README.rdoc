@@ -1,0 +1,3 @@
+==README
+
+This is a simple weather application that retrives your local weather once you've typed in the city name. I was created using ReactJs and Foundations.
