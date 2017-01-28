@@ -9,10 +9,11 @@ var WeatherMsg = React.createClass({
     var {temp, city} = this.props;
 
     return(
-      <div>
-        <h2>Weather: its {temp} in {city}</h2>
-      </div>
-    );
+      <h2>Weather: its {temp} in {city}</h2>
+      // <div>
+      //   <h2>Weather: its {temp} in {city}</h2>
+      // </div>
+    )
   }
 });
 

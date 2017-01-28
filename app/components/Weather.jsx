@@ -1,7 +1,7 @@
 var React = require('react');
-var WeatherMsg = require('WeatherMsg');
 var WeatherForm = require('WeatherForm');
-var OpenWeatherMap = require('OpenWeatherMap');
+var WeatherMsg = require('WeatherMsg');
+var openWeatherMap = require('openWeatherMap');
 
 
 /*********
@@ -11,25 +11,23 @@ var Weather = React.createClass({
   getInitialState: function() {
     return{
       isLoading: false
-    };
+    }
   },
   handleCityName: function(city){
     var that = this;
 
     this.setState({isLoading: true});
 
-    OpenWeatherMap.getTemp(city).then(function(temp){
+    openWeatherMap.getTemp(city).then(function (temp){
       that.setState({
         city: city,
         temp: temp,
         isLoading: false
       });
-    }, function(err){
-      that.setState({
-        isLoading: false
-      });
-      alert(err);
-    })
+    }, function (errorMessage){
+      that.setState({isLoading: false});
+      alert(errorMessage);
+    });
   },
   render: function(){
     var {isLoading, temp, city} = this.state;
@@ -47,7 +45,7 @@ var Weather = React.createClass({
         <WeatherForm onCityName={this.handleCityName}/>
         {renderMsg()}
       </div>
-    );
+    )
   }
 });
 

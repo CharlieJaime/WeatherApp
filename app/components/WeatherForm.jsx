@@ -4,7 +4,7 @@ var React = require('react');
 Weather Form compenent
 **********/
 var WeatherForm = React.createClass({
-  onFormSubmit: function(e){
+  onFormSubmit: function (e){
     e.preventDefault();
 
     var city = this.refs.city.value;
@@ -21,7 +21,7 @@ var WeatherForm = React.createClass({
         <form onSubmit={this.onFormSubmit}>
           <input placeholder='Enter City Name' type='text' ref='city'/>
           <br/>
-          <button type='submit'>Get Weather</button>
+          <button>Get Weather</button>
         </form>
       </div>
     );

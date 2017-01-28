@@ -14,7 +14,7 @@ module.exports = {
       WeatherMsg: 'app/components/WeatherMsg.jsx',
       About: 'app/components/About.jsx',
       Example: 'app/components/Example.jsx',
-      OpenWeatherMap: 'app/api/OpenWeatherMap.jsx'
+      openWeatherMap: 'app/api/openWeatherMap.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -29,5 +29,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }
     ]
-  }
+  },
+  devtool: "cheap-module-eval-source-map"
 };
