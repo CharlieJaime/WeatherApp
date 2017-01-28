@@ -1,20 +1,13 @@
 var React = require('react');
 
-
-/*********
-Weather Message compenent
-**********/
-var WeatherMsg = React.createClass({
-  render: function(){
-    var {temp, city} = this.props;
-
-    return(
-      <h2>Weather: its {temp} in {city}</h2>
-      // <div>
-      //   <h2>Weather: its {temp} in {city}</h2>
-      // </div>
-    )
-  }
-});
+var WeatherMsg = ({temp, city}) => {
+  return(
+    <div>
+      <div className='col-md-offset-4'>
+        <h2 className=''>Weather: its {temp} in {city}</h2>
+      </div>
+    </div>
+  );
+};
 
 module.exports = WeatherMsg;

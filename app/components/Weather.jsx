@@ -3,10 +3,6 @@ var WeatherForm = require('WeatherForm');
 var WeatherMsg = require('WeatherMsg');
 var openWeatherMap = require('openWeatherMap');
 
-
-/*********
-Main Weather compenent
-**********/
 var Weather = React.createClass({
   getInitialState: function() {
     return{
@@ -34,7 +30,7 @@ var Weather = React.createClass({
 
     function renderMsg(){
       if (isLoading) {
-        return <h3>Fetching weather...</h3>
+        return <h3 className='col-md-offset-4'>Fetching weather...</h3>
       } else if(temp && city){
         return <WeatherMsg  temp={temp} city={city}/>;
       }

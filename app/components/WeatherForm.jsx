@@ -1,8 +1,5 @@
 var React = require('react');
 
-/*********
-Weather Form compenent
-**********/
 var WeatherForm = React.createClass({
   onFormSubmit: function (e){
     e.preventDefault();
@@ -16,13 +13,18 @@ var WeatherForm = React.createClass({
   },
   render: function(){
     return(
-      <div>
-        <h1>Get Weather</h1>
-        <form onSubmit={this.onFormSubmit}>
-          <input placeholder='Enter City Name' type='text' ref='city'/>
-          <br/>
-          <button>Get Weather</button>
-        </form>
+      <div className='container-fluid'>
+        <div className="row">
+          <div className='col-md-offset-5'>
+            <h1>Get Weather</h1>
+            <form onSubmit={this.onFormSubmit}>
+              <input className="col-md-3" placeholder='Enter City Name' type='text' ref='city'/>
+              <br/>
+              <br/>
+              <button className="btn btn-info col-md-3">Get Weather</button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
